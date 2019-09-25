@@ -1,22 +1,12 @@
 ((self: ServiceWorkerGlobalScope) => {
     self.addEventListener("install", e => {
-        e.waitUntil(
-            (async () => {
-                console.log("インストールされた");
-                const c = await caches.open("c");
-                await c.add("/");
-                await self.skipWaiting();
-            })()
-        );
+        console.log("インストールされた");
+        e.waitUntil(self.skipWaiting());
     });
 
     self.addEventListener("activate", e => {
-        e.waitUntil(
-            (async () => {
-                console.log("アクティビティになった");
-                await self.clients.claim();
-            })()
-        );
+        console.log("アクティビティになった");
+        e.waitUntil(self.clients.claim());
     });
 
     self.addEventListener("fetch", e => {
