@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "es2019",
+        "strict": true,
+        "lib": ["es2019", "webworker"],
+        "removeComments": true,
+        "newLine": "LF"
+    },
+    "include": ["sw.ts"]
+}
